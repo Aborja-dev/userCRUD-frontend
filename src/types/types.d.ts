@@ -22,3 +22,14 @@ export interface User {
     state: 'INACTIVE' | 'ACTIVE' | 'SUSPENDED'
     role: 'MODERADOR' | 'VIP' | 'SELLER' | 'CLIENT' | 'ADMIN'
 }
+
+export interface reducerAction {
+    type: Actions
+    payload: any
+}
+
+export enum Actions {
+    'LOAD' = 'LOAD',
+    'EDIT' = 'EDIT',
+    'DELETE' = 'DELETE'
+}

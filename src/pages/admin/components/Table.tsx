@@ -17,8 +17,8 @@ interface Props {
 
 
 const options = [
-  { value: 'admin', label: 'Admin' },
-  { value: 'user', label: 'User' },
+  { value: 'ADMIN', label: 'Admin' },
+  { value: 'USER', label: 'User' },
 ]
 
 
