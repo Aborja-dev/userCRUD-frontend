@@ -5,7 +5,7 @@ export interface RegisterFormData {
     password: string
     name: string
     confirmPassword: string
-
+    avatar?: File
 }
 
 const RegisterForm: React.FC<FormProps<RegisterFormData>> = ({ onSubmit, children }) => {
@@ -22,18 +22,9 @@ if (password !== confirmPassword) {
       password: formData.get('password') as string,
       name: formData.get('name') as string,
       confirmPassword: formData.get('confirmPassword') as string,
+      avatar: formData.get('avatar') as File
     }
-    console.log(formData, data);
-    
     onSubmit(data) 
-    fetch('http://localhost:3001/users/register', {
-      method: 'POST',
-      body: formData,
-    }).then((response) => {
-      response.json().then((data) => {
-        console.log(data)
-    })
-    })
   }
   return (
     <div>
@@ -53,6 +44,10 @@ if (password !== confirmPassword) {
         <fieldset>
           <label htmlFor="confirmPassword">Confirm Password</label>
           <input type="password" id="confirmPassword" name="confirmPassword" />
+        </fieldset>
+        <fieldset>
+          <label htmlFor="role">Avatar Image</label>
+          <input type="file" name="avatar" accept="image/*" />
         </fieldset>
         <div className="flex gap-4">
           <button type="submit">Crear usuario</button>

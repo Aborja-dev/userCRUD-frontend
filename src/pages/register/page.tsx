@@ -7,7 +7,14 @@ import { useNavigate } from 'react-router-dom'
 const RegisterPage = () => {
   const navigate = useNavigate()
   const registerHandler = async (values: RegisterFormData) => {
-    const result = await fetchRegister(values)
+    const formData = new FormData()
+    formData.append('email', values.email)
+    formData.append('password', values.password)
+    formData.append('name', values.name)
+    if (values.avatar) {
+      formData.append('avatar', values.avatar)
+    }
+    const result = await fetchRegister(formData)
     if ('error' in result) {
       return Alert.error(result.message)
     }

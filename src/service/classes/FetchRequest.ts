@@ -92,7 +92,6 @@ export class FetchApiFormData extends FetchApiRequest {
         return fetch(url, {
             ...this.config,
             headers: {
-                'Content-Type': 'multipart/form-data',
             }
         });
     }
